@@ -27,6 +27,8 @@ public class BroadcastPlayerDeathListener implements Listener {
 
     @EventHandler
     public void broadcastListener(BroadcastDeathMessageEvent e) {
+        if (e.isCancelled()) return;
+
         PlayerCtx playerCtx = PlayerCtx.of(e.getPlayer().getUniqueId());
 
         if (playerCtx == null) return;

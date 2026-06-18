@@ -27,6 +27,8 @@ public class BroadcastEntityDeathListener implements Listener {
 
     @EventHandler
     public void broadcastListener(BroadcastEntityDeathMessageEvent e) {
+        if (e.isCancelled()) return;
+
         final PlayerCtx playerCtx = e.getPlayerContext();
         final Entity entity = e.getEntity();
         final boolean hasOwner = EntityUtil.hasOwner(entity);
