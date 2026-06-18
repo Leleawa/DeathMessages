@@ -75,6 +75,7 @@ public class NMSAdaptorImpl implements NMSAdaptor {
         final String iNamespace = XMaterial.matchXMaterial(i.getType().name()).get().name().toLowerCase();
         //noinspection PatternValidation - Dreeam: we can sure that this namespace above can build a valid adventure key
         final Key itemKey = Key.key(iNamespace);
+        // TODO: On higher Minecraft version, the compound changed to `components`
         final ReadWriteNBT nbt = NBT.itemStackToNBT(i).getCompound("tag");
 
         return i.hasItemMeta() && nbt != null && !nbt.toString().isEmpty()
